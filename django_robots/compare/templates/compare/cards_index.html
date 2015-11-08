@@ -1,0 +1,30 @@
+{% extends "compare/template.html" %}
+
+{% block about-cards %}active{% endblock %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Card Battle!</h1>
+    <p>Designed by Norton Pengra</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="one-half column">
+      <ol>
+        <li><a href="{% url "compare:signin" %}">Sign in</a> or <a href="{% url "compare:signup" %}">Sign up</a></li>
+        <li>Create a deck</li>
+        <li>Earn Cards</li>
+        <li>Create your own cards</li>
+        <!-- <li><a href="{% url "compare:compare" %}">Vote on images</a></li> -->
+        <!-- <li>See how your image is ranked amoung everyone else's</li> -->
+      </ol>
+      <a class="button button-purple" href="{% url "compare:upload" %}">Get Started</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

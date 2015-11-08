@@ -1,0 +1,43 @@
+{% extends "compare/template.html" %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome Back, Legend</h1>
+    <p>Lacking a username? <a href="{% url "compare:signup" %}">Sign up</a></p>
+  </div>
+</div>
+
+{% autoescape off %}
+  {% if errors %}
+    <div class="container mistakes">
+      {{errors}}
+    </div>
+  {% endif %}
+{% endautoescape %}
+
+<div class="container">
+  <form method="post" action="{% url "compare:signin" %}">
+    {% csrf_token %}
+    <div class="row">
+      <div class="one-third column">
+        <input class="u-full-width" type="text" id="username" name="username" value="{{username}}">
+        <label for="description">^ User Name</label>
+      </div>
+      <div class="one-third column">
+        <input class="u-full-width" type="password" id="password" name="password">
+        <label for="description">^ Password</label>
+      </div>
+
+      <div class="one-third column">
+        <input type="submit" class="u-full-width button-purple">
+        <label for="description">^ Login</label>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "compare/template.html" %}
+
+
+{% block about-active %}active{% endblock %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Comparison Project</h1>
+    <p>Designed by Norton Pengra</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="one-half column">
+      <ol>
+        <li>Upload a photo of a robot</li>
+        <li><a href="{% url "compare:compare" %}">Vote on robots</a></li>
+        <li>See how your robot is ranked amoung everyone else's</li>
+      </ol>
+      <a class="button button-purple" href="{% url "compare:upload" %}">Get Started</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

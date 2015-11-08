@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Compare</title>
+
+
+  <!-- Skeleton -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static "skeleton/css/normalize.css" %}">
+  <link rel="stylesheet" href="{% static "skeleton/css/skeleton.css" %}">
+  <link rel="stylesheet" href="{% static "custom/custom.css" %}">
+  <link rel="icon" type="image/png" href="{% static "skeleton/images/favicon.png" %}" />
+
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="container">
+      <ul class="nav-list">
+        <li class="navbar-item {% block about-active %}{% endblock %}">
+          <a href="{% url "compare:index" %}" class="navbar-link">About</a>
+        </li>
+        <li class="navbar-item {% block about-random %}{% endblock %}">
+          <a href="{% url "compare:compare" %}" class="navbar-link">Random</a>
+        </li>
+        <li class="navbar-item {% block about-popular %}{% endblock %}">
+          <a href="{% url "compare:popularity" %}" class="navbar-link">Popular</a>
+        </li>
+        <li class="navbar-item {% block about-stats %}{% endblock %}">
+          <a href="{% url "compare:stats" %}" class="navbar-link">Stats</a>
+        </li>
+        <li class="navbar-item {% block about-upload %}{% endblock %}">
+          <a href="{% url "compare:upload" %}" class="navbar-link">Upload</a>
+        </li>
+        <!-- <li class="navbar-item {% block about-cards %}{% endblock %}">
+          <a href="{! url "compare:cards" %}" class="navbar-link">Cards</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+  {% block body_block %}
+    {% if body_block %}
+      <div class="container" style="margin-top:20%;text-align:center;">
+        {% autoescape off %}
+          {{ body_block }}
+        {% endautoescape %}
+      </div>
+    {% else %}
+
+    <div class="container" style="margin-top:20%;text-align:center;">
+      <h1>Oops! Something broke!</h1>
+      <p>Try using the links in the navbar to get <a href="{% url "compare:index" %}">back</a></p>
+    </div>
+    {% endif %}
+  {% endblock %}
+
+  <footer class="footer">
+    Coded by <a href="">Norton Pengra</a> | Powered by <a href="">Django</a> | Boilerplate by <a href="">Skeleton</a>
+  </footer>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+</html>

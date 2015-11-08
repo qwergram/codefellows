@@ -1,0 +1,53 @@
+{% extends "compare/template.html" %}
+{% load staticfiles %}
+
+{% block about-stats %}active{% endblock %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Report of Robot #{{image.pk}}</h1>
+
+    <table class="u-full-width">
+      <thead>
+        <tr><td></td><td></td></tr>
+        <tr>
+          <td>Description</td>
+          <td>{{image.image_desc}}</td>
+        </tr>
+        <tr>
+          <td>Uploaded</td>
+          <td>{{image.pub_date}}</td>
+        </tr>
+        <tr>
+          <td>Wins</td>
+          <td>{{image.wins}}</td>
+        </tr>
+        <tr>
+          <td>Loses</td>
+          <td>{{image.loses}}</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          {% if image.is_hot %}
+            <td>On fire!</td>
+          {% else %}
+            <td>not so hot...</td>
+          {% endif %}
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="one column">&nbsp;</div>
+    <div class="ten columns">
+      <img src="/{{MEDIA_URL}}{{image.image}}" width="100%">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

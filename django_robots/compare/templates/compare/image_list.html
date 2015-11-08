@@ -1,0 +1,50 @@
+{% extends "compare/template.html" %}
+
+
+{% block about-stats %}active{% endblock %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Statistics</h1>
+    <p>
+      Currently there are {{length}} robots online.<br>
+      The latest robot was uploaded at {{last}}
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Robot URL</th>
+            <th>Upload Time</th>
+            <th>Description</th>
+            <th>Wins</th>
+            <th>Loses</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for obj in showcase%}
+            <tr>
+              <td><a href="{% url "compare:stats" %}{{obj.pk}}">{{obj.pk}}</a></td>
+              <td><a href="/{{MEDIA_URL}}{{obj.image}}">{{obj.image}}</a></td>
+              <td>{{obj.pub_date}}</td>
+              <td>{{obj.image_desc}}</td>
+              <td>{{obj.wins}}</td>
+              <td>{{obj.loses}}</td>
+              <!-- <a href="{% url "compare:stats" %}{{obj.pk}}"><img src="{{MEDIA_URL}}{{obj.image}}" width="100%"></a> -->
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "compare/template.html" %}
+
+
+{% block about-upload %}active{% endblock %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Upload a Robot</h1>
+    <p>Choose a robot photo</p>
+  </div>
+</div>
+
+{% if form %}
+  <div class="container mistakes">
+    {{form.errors}}
+  </div>
+{% endif %}
+
+<div class="container">
+  <form method="post" action="{% url "compare:uploading" %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="one-third column">
+        <label for="description">Robot name</label>
+        <input class="u-full-width" type="text" id="description" name="image_desc">
+      </div>
+      <div class="one-third column">
+        <label for="image_upload">Robot Image Upload</label>
+        <input type="file" id="image_upload" name="image_file">
+      </div>
+      <div class="one-third column">
+        <input type="submit" class="u-full-width button-purple">
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

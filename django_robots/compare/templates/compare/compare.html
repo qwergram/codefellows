@@ -1,0 +1,52 @@
+{% extends "compare/template.html" %}
+{% load staticfiles %}
+
+{% block about-random %}active{% endblock %}
+
+{% block body_block %}
+<br>
+
+{% block jumbotron %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Which robot is better looking?</h1>
+  </div>
+</div>
+{% endblock %}
+
+<div class="container">
+  <div class="row">
+      <div class="one-half column">
+        <form method="post" style="margin:0;">
+          {% csrf_token %}
+          <input type="hidden" name="winner" value="{{first_image.pk}}" />
+          <input type="hidden" name="loser" value="{{second_image.pk}}" />
+          <input type="hidden" name="placement" value="left"/>
+          <input class="u-full-width button button-purple" type="submit" value="First Robot > Second Robot">
+        </form>
+      </div>
+      <div class="one-half column">
+        <form method="post" style="margin:0;">
+          {% csrf_token %}
+          <input type="hidden" name="winner" value="{{second_image.pk}}" />
+          <input type="hidden" name="loser" value="{{first_image.pk}}" />
+          <input type="hidden" name="placement" value="right"/>
+          <input class="u-full-width button button-purple" type="submit" value="Second Robot > First Robot">
+        </form>
+      </div>
+  </div>
+  <div class="row">
+    <div class="one-half column">
+      <a href="{% url "compare:stats" %}{{first_image.pk}}">
+        <img src="/{{MEDIA_URL}}{{first_image.image}}" width="100%">
+      </a>
+    </div>
+    <div class="one-half column">
+      <a href="{% url "compare:stats" %}{{second_image.pk}}">
+        <img src="/{{MEDIA_URL}}{{second_image.image}}" width="100%">
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

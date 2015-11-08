@@ -1,0 +1,66 @@
+{% extends "compare/template.html" %}
+
+{% block body_block %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Sign up for Card Battles!</h1>
+    <p>Have an account? <a href="{% url "compare:signin" %}">Sign in</a></p>
+  </div>
+</div>
+
+{% autoescape off %}
+  {% if errors %}
+    <div class="container mistakes">
+      {{errors}}
+    </div>
+  {% endif %}
+{% endautoescape %}
+
+<div class="container">
+  <form method="post" action="{% url "compare:signup" %}">
+    {% csrf_token %}
+    <div class="row">
+      <div class="one-half column">
+        <label for="description">First Name</label>
+        <input class="u-full-width" type="text" id="fname" name="fname" value="{{fname}}">
+      </div>
+      <div class="one-half column">
+        <label for="description">Last Name</label>
+        <input class="u-full-width" type="text" id="lname" name="lname" value="{{lname}}">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column">
+        <label for="description">User Name</label>
+        <input class="u-full-width" type="text" id="username" name="username" value="{{username}}">
+      </div>
+      <div class="one-half column">
+        <label for="description">Email</label>
+        <input class="u-full-width" type="email" id="email" name="email" value="{{email}}">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column">
+        <label for="description">Password</label>
+        <input class="u-full-width" type="password" id="password" name="password">
+      </div>
+      <div class="one-half column">
+        <label for="description">Confirm Password</label>
+        <input class="u-full-width" type="password" id="confirm_password" name="confirm_password">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column">
+        <input type="submit" class="u-full-width button-purple">
+      </div>
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+  body {
+    margin-top: 51px;
+    margin-bottom: 51px;
+    background: #CCC6F8;
+    color: #3c3c58;
+  }
+
+.navbar {
+  height: 50px;
+  position: fixed;
+  background: #2C2638;
+  color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  border-bottom: solid #CCC6F8 1px;
+  overflow: hidden;
+}
+
+  div.navbar ul.nav-list {
+    list-style: none;
+    margin-bottom: 0;
+  }
+
+    div.navbar ul li.navbar-item {
+      position: relative;
+      float: left;
+      margin-bottom: 0;
+    }
+
+    div.navbar ul li.navbar-item.active {
+      background: #3C3648;
+    }
+
+      div.navbar ul li a.navbar-link {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .2rem;
+        margin-right: 35px;
+        margin-left: 35px;
+        color: #fff;
+        line-height: 4.9rem;
+        text-decoration: none;
+      }
+
+
+.footer {
+  height: 50px;
+  position: fixed;
+  background: #2C2638;
+  color: #fff;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  line-height: 4.9rem;
+  font-size: 13px;
+  letter-spacing: .2rem;
+  border-top: solid #CCC6F8 1px;
+}
+
+.jumbotron {
+  background: #2C2638;
+  padding: 35px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #CCC6F8;
+}
+
+  .jumbotron h1, p {
+    margin-bottom: 0;
+  }
+
+.button-purple {
+  transition: 0.2s;
+  color: #CCC6F8;
+  background: #2C2638;
+}
+
+.button-purple:hover {
+  transition: 0.2s;
+  color: #2C2638;
+  background: #CCC6F8;
+}
+
+
+.mistakes {
+  background: #fee;
+  padding: 35px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #900;
+  border: solid 1px #900;
+}
